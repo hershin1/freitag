@@ -1,0 +1,666 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A0B3784A03B4FCEBEE8ED5A /* SharedModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0E0E7A14F645C6AEC5528A /* SharedModelContainer.swift */; };
+		10EB073714F3444D8FECBD99 /* FreitagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247610B699F647DF851E9AEB /* FreitagApp.swift */; };
+		13A1EB242772468B818808E5 /* Analysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F2E5B1D3B46ACB56BF345 /* Analysis.swift */; };
+		187646DBF85347F181117299 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847D98389974A6F93604436 /* Article.swift */; };
+		18BD7750096C43F49630AEE3 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7192D8FCCAF64EBA8FE79840 /* OpenAIService.swift */; };
+		292F72058F234047AD332247 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549FD9EA1D624F419578CA87 /* DateFormatters.swift */; };
+		2CB6E2678F2548F9899CD3DD /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42FEE42A8D4F5FB21C371B /* KeychainHelper.swift */; };
+		392D20997987404BBE18C986 /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56ABC2693CE4115A40932B5 /* ArticleDetailViewModel.swift */; };
+		48F96721001E4EE09386CAC3 /* FreitagShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B42FA86263FB4886BD8B7A0B /* FreitagShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4DEC8B32153140E0B566BFC2 /* StreamingResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A714B2D7F44C6881E4D8E6 /* StreamingResponseParser.swift */; };
+		5123620111B24DBBB8048783 /* AIServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08923945B4F4D198F35EEF4 /* AIServiceFactory.swift */; };
+		52ACD2A2DA8243D79FEF9098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931AD5BAC9DF4E709A24E893 /* Assets.xcassets */; };
+		53298BB31A1B4CD48762AB6C /* AnalysisSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D720F2F95004483871B953E /* AnalysisSectionView.swift */; };
+		5AD327B12450498D921825A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE30EE78EEB4AA8A2F0E3AD /* ContentView.swift */; };
+		5B2B7331C6AD4B54AEB66A92 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC29A0280DC47799F113775 /* SettingsViewModel.swift */; };
+		5C2D5E771106480FB6007315 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53EDFB5374E49888FACF9B8 /* NetworkService.swift */; };
+		5E939280FCD64C259893D156 /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232EFE92D9E412C9F584EFB /* AIProvider.swift */; };
+		66716BBFDC3D42C997DAE2F1 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847D98389974A6F93604436 /* Article.swift */; };
+		6800B4A4288047F085256DDA /* SharedModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0E0E7A14F645C6AEC5528A /* SharedModelContainer.swift */; };
+		6DBEF99129FF44D2A9E436F4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046310FFCB044E1B3684D71 /* AppConstants.swift */; };
+		6E16F18640F14B1483E56ABF /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6ADECD1064246A3A1F1A5 /* GeminiService.swift */; };
+		6E67DAE676D04F54ACDB1EFE /* Analysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F2E5B1D3B46ACB56BF345 /* Analysis.swift */; };
+		7DFFB60B4B98490EA22DA99C /* AIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CC6CF0BC49A9A78D7BCB /* AIServiceProtocol.swift */; };
+		862F0CA2C5CD447BA239404C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF95973662AB4E61BFAD9335 /* SettingsView.swift */; };
+		8F98CE6BFF1B4823AFB93023 /* ShareExtensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171A469AB194A7D9CD396AC /* ShareExtensionViewModel.swift */; };
+		A2898AEB72E84A48A65FC932 /* WeChatArticleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD161B217FF45208B36B126 /* WeChatArticleParser.swift */; };
+		A34D84B79F1E492A920591F4 /* LoadingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B033FDD634843B09448A2 /* LoadingStateView.swift */; };
+		AD9FC3FA0E06458AAE1BE33A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 8DE6D4F17AC44A8790DED4B1 /* SwiftSoup */; };
+		B8EE083E8B764B5EB1279FE7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046310FFCB044E1B3684D71 /* AppConstants.swift */; };
+		BA8D9286C4E54FFA91118D05 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC86FF847D54D2F88ED2678 /* ShareViewController.swift */; };
+		C0DB8E4DA9A544719B9CA1A8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 96ACAFBA950C4E2085F071E0 /* SwiftSoup */; };
+		C7785E99E7AE495B88BB611A /* ArticleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FF0EE1D19483C99A01B98 /* ArticleRowView.swift */; };
+		D200E9A7E9FC44CD9028E5AD /* ShareExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76FB6119894DCAB1332416 /* ShareExtensionView.swift */; };
+		D2D10798122D46698E136513 /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232EFE92D9E412C9F584EFB /* AIProvider.swift */; };
+		D4E33B9E3A8F48E9A0120F65 /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441D4592BE74F99933B631B /* ArticleListView.swift */; };
+		D7FAFD7C168B412A8D46E958 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B7297CBCA421B984942C9 /* ArticleDetailView.swift */; };
+		F331CB688BBA4E889BB553D9 /* PromptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5283A1996F4965885D2CB5 /* PromptBuilder.swift */; };
+		F81C58AD13D7480E9342CF7A /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5E00B298604E67830BD92F /* ArticleListViewModel.swift */; };
+		F9B7DBDA0683465AA8396019 /* StreamingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2D9EABD04B4C2593BB055F /* StreamingTextView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B686E71D0CD7487CBBE0F5D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EE8DC0494554608B1C6F9BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB1C9FAFB2F84E778AA7C75E;
+			remoteInfo = FreitagShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B236176A2F074C9BB127F6F8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				48F96721001E4EE09386CAC3 /* FreitagShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0441D4592BE74F99933B631B /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
+		09F912F4C8F4443595CEB54E /* freitag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = freitag.entitlements; sourceTree = "<group>"; };
+		0D720F2F95004483871B953E /* AnalysisSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisSectionView.swift; sourceTree = "<group>"; };
+		1171A469AB194A7D9CD396AC /* ShareExtensionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionViewModel.swift; sourceTree = "<group>"; };
+		2232EFE92D9E412C9F584EFB /* AIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProvider.swift; sourceTree = "<group>"; };
+		247610B699F647DF851E9AEB /* FreitagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreitagApp.swift; sourceTree = "<group>"; };
+		2CBE47CEE1814ADB8991081B /* FreitagShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FreitagShareExtension.entitlements; sourceTree = "<group>"; };
+		37785F1B6BE1490AA32FFF96 /* freitag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = freitag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A27CC6CF0BC49A9A78D7BCB /* AIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIServiceProtocol.swift; sourceTree = "<group>"; };
+		3D5283A1996F4965885D2CB5 /* PromptBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptBuilder.swift; sourceTree = "<group>"; };
+		42D6ADECD1064246A3A1F1A5 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
+		549FD9EA1D624F419578CA87 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		5D3B7297CBCA421B984942C9 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
+		6847D98389974A6F93604436 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		6A0E0E7A14F645C6AEC5528A /* SharedModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModelContainer.swift; sourceTree = "<group>"; };
+		7192D8FCCAF64EBA8FE79840 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		775F2E5B1D3B46ACB56BF345 /* Analysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.swift; sourceTree = "<group>"; };
+		8BD161B217FF45208B36B126 /* WeChatArticleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatArticleParser.swift; sourceTree = "<group>"; };
+		931AD5BAC9DF4E709A24E893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA2D9EABD04B4C2593BB055F /* StreamingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTextView.swift; sourceTree = "<group>"; };
+		B2A714B2D7F44C6881E4D8E6 /* StreamingResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingResponseParser.swift; sourceTree = "<group>"; };
+		B42FA86263FB4886BD8B7A0B /* FreitagShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FreitagShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B56ABC2693CE4115A40932B5 /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
+		BB76FB6119894DCAB1332416 /* ShareExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionView.swift; sourceTree = "<group>"; };
+		BF91C72985EA453C97717B16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDC86FF847D54D2F88ED2678 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		CF95973662AB4E61BFAD9335 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D53EDFB5374E49888FACF9B8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DB0B033FDD634843B09448A2 /* LoadingStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStateView.swift; sourceTree = "<group>"; };
+		DCC29A0280DC47799F113775 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		DD5E00B298604E67830BD92F /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
+		E046310FFCB044E1B3684D71 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		F08923945B4F4D198F35EEF4 /* AIServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIServiceFactory.swift; sourceTree = "<group>"; };
+		FA42FEE42A8D4F5FB21C371B /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		FB7FF0EE1D19483C99A01B98 /* ArticleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRowView.swift; sourceTree = "<group>"; };
+		FEE30EE78EEB4AA8A2F0E3AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23DC2DCBA5754710B9B18BD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0DB8E4DA9A544719B9CA1A8 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FF4245CE46409DBA8D8DEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9FC3FA0E06458AAE1BE33A /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1AFB211098504831B5D703D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37785F1B6BE1490AA32FFF96 /* freitag.app */,
+				B42FA86263FB4886BD8B7A0B /* FreitagShareExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F4EECE06B124537A92A8711 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				247610B699F647DF851E9AEB /* FreitagApp.swift */,
+				E046310FFCB044E1B3684D71 /* AppConstants.swift */,
+				6A0E0E7A14F645C6AEC5528A /* SharedModelContainer.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2AA8B8E49A85498581577359 /* ArticleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5D3B7297CBCA421B984942C9 /* ArticleDetailView.swift */,
+				0D720F2F95004483871B953E /* AnalysisSectionView.swift */,
+				AA2D9EABD04B4C2593BB055F /* StreamingTextView.swift */,
+			);
+			path = ArticleDetail;
+			sourceTree = "<group>";
+		};
+		2B14F95E255146298820BE20 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CF95973662AB4E61BFAD9335 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3D26EBE940254E998304B1E7 /* AIService */ = {
+			isa = PBXGroup;
+			children = (
+				3A27CC6CF0BC49A9A78D7BCB /* AIServiceProtocol.swift */,
+				7192D8FCCAF64EBA8FE79840 /* OpenAIService.swift */,
+				42D6ADECD1064246A3A1F1A5 /* GeminiService.swift */,
+				F08923945B4F4D198F35EEF4 /* AIServiceFactory.swift */,
+				B2A714B2D7F44C6881E4D8E6 /* StreamingResponseParser.swift */,
+			);
+			path = AIService;
+			sourceTree = "<group>";
+		};
+		455CE1C19CA24A30B60FA86D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FEE30EE78EEB4AA8A2F0E3AD /* ContentView.swift */,
+				B1873245FA924B469ADC697E /* ArticleList */,
+				2AA8B8E49A85498581577359 /* ArticleDetail */,
+				2B14F95E255146298820BE20 /* Settings */,
+				FE03F7C9A7CF4DA29AA7F044 /* Shared */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		62E8DF91AD1E4BC183317EC8 /* HTMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				8BD161B217FF45208B36B126 /* WeChatArticleParser.swift */,
+			);
+			path = HTMLParser;
+			sourceTree = "<group>";
+		};
+		7BDE5E51EAC740EDAD419F7A /* freitag */ = {
+			isa = PBXGroup;
+			children = (
+				1F4EECE06B124537A92A8711 /* App */,
+				7CDC8AADB23E47F2A171EDD4 /* Models */,
+				91A6584F66A1402594A6761E /* Services */,
+				9CC9F1C642D14235B3C8AD6C /* Utilities */,
+				E4DBDAA62EF74AE3BE77BCA8 /* ViewModels */,
+				455CE1C19CA24A30B60FA86D /* Views */,
+				931AD5BAC9DF4E709A24E893 /* Assets.xcassets */,
+				09F912F4C8F4443595CEB54E /* freitag.entitlements */,
+			);
+			path = freitag;
+			sourceTree = "<group>";
+		};
+		7CDC8AADB23E47F2A171EDD4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6847D98389974A6F93604436 /* Article.swift */,
+				775F2E5B1D3B46ACB56BF345 /* Analysis.swift */,
+				2232EFE92D9E412C9F584EFB /* AIProvider.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8FAE727ECC9F41E7B8E47A61 = {
+			isa = PBXGroup;
+			children = (
+				7BDE5E51EAC740EDAD419F7A /* freitag */,
+				C2C15FDF46C042469CAD025C /* FreitagShareExtension */,
+				1AFB211098504831B5D703D1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		91A6584F66A1402594A6761E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D53EDFB5374E49888FACF9B8 /* NetworkService.swift */,
+				3D5283A1996F4965885D2CB5 /* PromptBuilder.swift */,
+				3D26EBE940254E998304B1E7 /* AIService */,
+				62E8DF91AD1E4BC183317EC8 /* HTMLParser */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9CC9F1C642D14235B3C8AD6C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FA42FEE42A8D4F5FB21C371B /* KeychainHelper.swift */,
+				549FD9EA1D624F419578CA87 /* DateFormatters.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B1873245FA924B469ADC697E /* ArticleList */ = {
+			isa = PBXGroup;
+			children = (
+				0441D4592BE74F99933B631B /* ArticleListView.swift */,
+				FB7FF0EE1D19483C99A01B98 /* ArticleRowView.swift */,
+			);
+			path = ArticleList;
+			sourceTree = "<group>";
+		};
+		C2C15FDF46C042469CAD025C /* FreitagShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				CDC86FF847D54D2F88ED2678 /* ShareViewController.swift */,
+				BB76FB6119894DCAB1332416 /* ShareExtensionView.swift */,
+				1171A469AB194A7D9CD396AC /* ShareExtensionViewModel.swift */,
+				2CBE47CEE1814ADB8991081B /* FreitagShareExtension.entitlements */,
+				BF91C72985EA453C97717B16 /* Info.plist */,
+			);
+			path = FreitagShareExtension;
+			sourceTree = "<group>";
+		};
+		E4DBDAA62EF74AE3BE77BCA8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD5E00B298604E67830BD92F /* ArticleListViewModel.swift */,
+				B56ABC2693CE4115A40932B5 /* ArticleDetailViewModel.swift */,
+				DCC29A0280DC47799F113775 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FE03F7C9A7CF4DA29AA7F044 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DB0B033FDD634843B09448A2 /* LoadingStateView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB1C9FAFB2F84E778AA7C75E /* FreitagShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4554AF3D9607440A9F7439F9 /* Build configuration list for PBXNativeTarget "FreitagShareExtension" */;
+			buildPhases = (
+				F8120EB303F7436C96B79A43 /* Sources */,
+				C6FF4245CE46409DBA8D8DEA /* Frameworks */,
+				F664C6D91DA043088559470F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FreitagShareExtension;
+			packageProductDependencies = (
+				8DE6D4F17AC44A8790DED4B1 /* SwiftSoup */,
+			);
+			productName = FreitagShareExtension;
+			productReference = B42FA86263FB4886BD8B7A0B /* FreitagShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DD197D62296945AEA9A9D143 /* freitag */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C094983BEE6D4FE4818A2AF1 /* Build configuration list for PBXNativeTarget "freitag" */;
+			buildPhases = (
+				C316E508C4584935BB05104B /* Sources */,
+				23DC2DCBA5754710B9B18BD8 /* Frameworks */,
+				8533578D13B740DF908A9C6C /* Resources */,
+				B236176A2F074C9BB127F6F8 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2E7283FA7BE488D96EEAD17 /* PBXTargetDependency */,
+			);
+			name = freitag;
+			packageProductDependencies = (
+				96ACAFBA950C4E2085F071E0 /* SwiftSoup */,
+			);
+			productName = freitag;
+			productReference = 37785F1B6BE1490AA32FFF96 /* freitag.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4EE8DC0494554608B1C6F9BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 9672F8D6EF714E079F28C4E3 /* Build configuration list for PBXProject "freitag" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 8FAE727ECC9F41E7B8E47A61;
+			packageReferences = (
+				E319EA99BFB944BDB5320A61 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
+			productRefGroup = 1AFB211098504831B5D703D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD197D62296945AEA9A9D143 /* freitag */,
+				DB1C9FAFB2F84E778AA7C75E /* FreitagShareExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8533578D13B740DF908A9C6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52ACD2A2DA8243D79FEF9098 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F664C6D91DA043088559470F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C316E508C4584935BB05104B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10EB073714F3444D8FECBD99 /* FreitagApp.swift in Sources */,
+				B8EE083E8B764B5EB1279FE7 /* AppConstants.swift in Sources */,
+				6800B4A4288047F085256DDA /* SharedModelContainer.swift in Sources */,
+				66716BBFDC3D42C997DAE2F1 /* Article.swift in Sources */,
+				6E67DAE676D04F54ACDB1EFE /* Analysis.swift in Sources */,
+				D2D10798122D46698E136513 /* AIProvider.swift in Sources */,
+				5C2D5E771106480FB6007315 /* NetworkService.swift in Sources */,
+				F331CB688BBA4E889BB553D9 /* PromptBuilder.swift in Sources */,
+				7DFFB60B4B98490EA22DA99C /* AIServiceProtocol.swift in Sources */,
+				18BD7750096C43F49630AEE3 /* OpenAIService.swift in Sources */,
+				6E16F18640F14B1483E56ABF /* GeminiService.swift in Sources */,
+				5123620111B24DBBB8048783 /* AIServiceFactory.swift in Sources */,
+				4DEC8B32153140E0B566BFC2 /* StreamingResponseParser.swift in Sources */,
+				A2898AEB72E84A48A65FC932 /* WeChatArticleParser.swift in Sources */,
+				F81C58AD13D7480E9342CF7A /* ArticleListViewModel.swift in Sources */,
+				392D20997987404BBE18C986 /* ArticleDetailViewModel.swift in Sources */,
+				5B2B7331C6AD4B54AEB66A92 /* SettingsViewModel.swift in Sources */,
+				5AD327B12450498D921825A3 /* ContentView.swift in Sources */,
+				D4E33B9E3A8F48E9A0120F65 /* ArticleListView.swift in Sources */,
+				C7785E99E7AE495B88BB611A /* ArticleRowView.swift in Sources */,
+				D7FAFD7C168B412A8D46E958 /* ArticleDetailView.swift in Sources */,
+				53298BB31A1B4CD48762AB6C /* AnalysisSectionView.swift in Sources */,
+				F9B7DBDA0683465AA8396019 /* StreamingTextView.swift in Sources */,
+				862F0CA2C5CD447BA239404C /* SettingsView.swift in Sources */,
+				A34D84B79F1E492A920591F4 /* LoadingStateView.swift in Sources */,
+				2CB6E2678F2548F9899CD3DD /* KeychainHelper.swift in Sources */,
+				292F72058F234047AD332247 /* DateFormatters.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8120EB303F7436C96B79A43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8D9286C4E54FFA91118D05 /* ShareViewController.swift in Sources */,
+				D200E9A7E9FC44CD9028E5AD /* ShareExtensionView.swift in Sources */,
+				8F98CE6BFF1B4823AFB93023 /* ShareExtensionViewModel.swift in Sources */,
+				6DBEF99129FF44D2A9E436F4 /* AppConstants.swift in Sources */,
+				0A0B3784A03B4FCEBEE8ED5A /* SharedModelContainer.swift in Sources */,
+				187646DBF85347F181117299 /* Article.swift in Sources */,
+				13A1EB242772468B818808E5 /* Analysis.swift in Sources */,
+				5E939280FCD64C259893D156 /* AIProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A2E7283FA7BE488D96EEAD17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB1C9FAFB2F84E778AA7C75E /* FreitagShareExtension */;
+			targetProxy = B686E71D0CD7487CBBE0F5D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		06B0018799D046C29DEA1374 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = freitag/freitag.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64H99TW8CF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_CLASS = SwiftUI;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freitag.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58B5CEAF89094FDF995F9BE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FreitagShareExtension/FreitagShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64H99TW8CF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FreitagShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FreitagShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freitag.app.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68615787D03344C68DE4A312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC47E3E4275C4A7EAE592F4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FreitagShareExtension/FreitagShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64H99TW8CF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FreitagShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FreitagShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freitag.app.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D67B053CE98642C0B9725D02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D77D51DF615349A094BF761D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = freitag/freitag.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64H99TW8CF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_CLASS = SwiftUI;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.freitag.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4554AF3D9607440A9F7439F9 /* Build configuration list for PBXNativeTarget "FreitagShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B5CEAF89094FDF995F9BE2 /* Debug */,
+				BC47E3E4275C4A7EAE592F4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9672F8D6EF714E079F28C4E3 /* Build configuration list for PBXProject "freitag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D67B053CE98642C0B9725D02 /* Debug */,
+				68615787D03344C68DE4A312 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C094983BEE6D4FE4818A2AF1 /* Build configuration list for PBXNativeTarget "freitag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06B0018799D046C29DEA1374 /* Debug */,
+				D77D51DF615349A094BF761D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E319EA99BFB944BDB5320A61 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8DE6D4F17AC44A8790DED4B1 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E319EA99BFB944BDB5320A61 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		96ACAFBA950C4E2085F071E0 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E319EA99BFB944BDB5320A61 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4EE8DC0494554608B1C6F9BC /* Project object */;
+}
