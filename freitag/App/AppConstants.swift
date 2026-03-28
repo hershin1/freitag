@@ -11,4 +11,8 @@ enum AppConstants {
 
     // Keychain
     static let keychainServiceName = "com.freitag.apikey"
+
+    // Infographic
+    static let infographicModelName = "gemini-2.0-flash-preview-image-generation"
+    static let geminiDefaultBaseURL = "https://generativelanguage.googleapis.com/v1beta"
 }

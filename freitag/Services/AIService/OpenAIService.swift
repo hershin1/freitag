@@ -39,10 +39,10 @@ final class OpenAIService: AIServiceProtocol {
 
     // MARK: - Non-Streaming Analysis
 
-    func analyzeArticle(title: String, content: String) async throws -> AnalysisResult {
+    func analyzeArticle(title: String, content: String, mode: AnalysisMode) async throws -> AnalysisResult {
         let apiKey = try resolveAPIKey()
         let url = try buildCompletionsURL()
-        let body = try buildRequestBody(title: title, content: content, stream: false)
+        let body = try buildRequestBody(title: title, content: content, mode: mode, stream: false)
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -73,13 +73,13 @@ final class OpenAIService: AIServiceProtocol {
 
     // MARK: - Streaming Analysis
 
-    func analyzeArticleStreaming(title: String, content: String) -> AsyncThrowingStream<String, Error> {
+    func analyzeArticleStreaming(title: String, content: String, mode: AnalysisMode) -> AsyncThrowingStream<String, Error> {
         AsyncThrowingStream { continuation in
             let task = Task {
                 do {
                     let apiKey = try resolveAPIKey()
                     let url = try buildCompletionsURL()
-                    let body = try buildRequestBody(title: title, content: content, stream: true)
+                    let body = try buildRequestBody(title: title, content: content, mode: mode, stream: true)
 
                     let headers: [String: String] = [
                         "Content-Type": "application/json",
@@ -137,9 +137,9 @@ final class OpenAIService: AIServiceProtocol {
         return url
     }
 
-    private func buildRequestBody(title: String, content: String, stream: Bool) throws -> Data {
-        let systemPrompt = PromptBuilder.buildSystemPrompt()
-        let userPrompt = PromptBuilder.buildUserPrompt(title: title, content: content)
+    private func buildRequestBody(title: String, content: String, mode: AnalysisMode, stream: Bool) throws -> Data {
+        let systemPrompt = PromptBuilder.buildSystemPrompt(mode: mode)
+        let userPrompt = PromptBuilder.buildUserPrompt(title: title, content: content, mode: mode)
 
         let body: [String: Any] = [
             "model": config.modelName,

@@ -6,6 +6,7 @@ struct ArticleDetailView: View {
     let article: Article
 
     @State private var viewModel: ArticleDetailViewModel?
+    @State private var selectedInfographic: UIImage?
 
     var body: some View {
         ScrollView {
@@ -46,6 +47,12 @@ struct ArticleDetailView: View {
             if viewModel == nil {
                 viewModel = ArticleDetailViewModel(article: article)
             }
+        }
+        .sheet(item: Binding(
+            get: { selectedInfographic.map { IdentifiableImage(image: $0) } },
+            set: { selectedInfographic = $0?.image }
+        )) { item in
+            InfographicFullScreenView(image: item.image)
         }
     }
 
@@ -94,7 +101,7 @@ struct ArticleDetailView: View {
 
         case .completed:
             if let analysis = article.analysis {
-                completedAnalysisView(analysis: analysis)
+                completedAnalysisView(analysis: analysis, viewModel: viewModel)
             } else {
                 idleAnalysisView(viewModel: viewModel)
             }
@@ -104,7 +111,7 @@ struct ArticleDetailView: View {
         }
     }
 
-    // MARK: - Idle State
+    // MARK: - Idle State (Mode Selection)
 
     private func idleAnalysisView(viewModel: ArticleDetailViewModel) -> some View {
         VStack(spacing: 16) {
@@ -112,31 +119,65 @@ struct ArticleDetailView: View {
                 .font(.system(size: 32))
                 .foregroundStyle(.blue)
 
-            Text("使用 AI 深度分析这篇文章")
+            Text("选择分析模式")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
-            Button(action: { viewModel.startAnalysis(context: modelContext) }) {
-                HStack(spacing: 8) {
-                    Image(systemName: "wand.and.stars")
-                    Text("AI 智能分析")
+            HStack(spacing: 12) {
+                // Brief Summary Button
+                analysisModeButton(
+                    icon: "doc.plaintext",
+                    title: "精简总结",
+                    subtitle: "快速概览，精炼要点",
+                    color: .green
+                ) {
+                    viewModel.startAnalysis(mode: .brief, context: modelContext)
                 }
-                .font(.headline)
-                .foregroundStyle(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background(
-                    LinearGradient(
-                        colors: [.blue, .blue.opacity(0.8)],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+
+                // Deep Analysis Button
+                analysisModeButton(
+                    icon: "wand.and.stars",
+                    title: "深度分析",
+                    subtitle: "五维深度分析",
+                    color: .blue
+                ) {
+                    viewModel.startAnalysis(mode: .deep, context: modelContext)
+                }
             }
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 20)
+    }
+
+    private func analysisModeButton(
+        icon: String,
+        title: String,
+        subtitle: String,
+        color: Color,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            VStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.title2)
+                Text(title)
+                    .font(.headline)
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.white.opacity(0.8))
+            }
+            .foregroundStyle(.white)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 16)
+            .background(
+                LinearGradient(
+                    colors: [color, color.opacity(0.7)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+        }
     }
 
     // MARK: - Fetching Content State
@@ -192,8 +233,30 @@ struct ArticleDetailView: View {
 
     // MARK: - Completed State
 
-    private func completedAnalysisView(analysis: Analysis) -> some View {
+    private func completedAnalysisView(analysis: Analysis, viewModel: ArticleDetailViewModel) -> some View {
         VStack(spacing: 12) {
+            // Mode badge
+            HStack {
+                let mode = AnalysisMode(rawValue: analysis.analysisMode) ?? .deep
+                Label(mode.displayName, systemImage: mode.icon)
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(mode == .brief ? .green : .blue)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(
+                        Capsule().fill(
+                            mode == .brief
+                                ? Color.green.opacity(0.1)
+                                : Color.blue.opacity(0.1)
+                        )
+                    )
+                Spacer()
+            }
+
+            // Infographic section
+            infographicSection(viewModel: viewModel)
+
+            // Analysis sections (all 5 for both modes)
             AnalysisSectionView(
                 title: "文章摘要",
                 content: analysis.summary.isEmpty ? "暂无摘要" : analysis.summary,
@@ -226,6 +289,66 @@ struct ArticleDetailView: View {
         }
     }
 
+    // MARK: - Infographic Section
+
+    @ViewBuilder
+    private func infographicSection(viewModel: ArticleDetailViewModel) -> some View {
+        switch viewModel.infographicState {
+        case .idle, .skipped:
+            EmptyView()
+
+        case .generating:
+            VStack(spacing: 8) {
+                ProgressView()
+                    .controlSize(.small)
+                Text("正在生成信息图...")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
+
+        case .completed:
+            if !viewModel.infographicImages.isEmpty {
+                VStack(alignment: .leading, spacing: 8) {
+                    Label("AI 信息图", systemImage: "photo.artframe")
+                        .font(.subheadline.weight(.medium))
+
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(Array(viewModel.infographicImages.enumerated()), id: \.offset) { _, image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxHeight: 280)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .shadow(color: .black.opacity(0.08), radius: 4, y: 2)
+                                    .onTapGesture {
+                                        selectedInfographic = image
+                                    }
+                            }
+                        }
+                    }
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
+            }
+
+        case .failed:
+            HStack(spacing: 6) {
+                Image(systemName: "photo.badge.exclamationmark")
+                    .foregroundStyle(.orange)
+                Text("信息图生成失败，不影响分析结果")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(RoundedRectangle(cornerRadius: 8).fill(Color(.systemGray6)))
+        }
+    }
+
     // MARK: - Failed State
 
     private func failedAnalysisView(message: String, viewModel: ArticleDetailViewModel) -> some View {
@@ -239,7 +362,7 @@ struct ArticleDetailView: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
 
-            Button(action: { viewModel.startAnalysis(context: modelContext) }) {
+            Button(action: { viewModel.startAnalysis(mode: viewModel.selectedMode, context: modelContext) }) {
                 Label("重新尝试", systemImage: "arrow.clockwise")
                     .font(.subheadline.weight(.medium))
             }
@@ -280,6 +403,38 @@ struct ArticleDetailView: View {
             return true
         default:
             return false
+        }
+    }
+}
+
+// MARK: - Identifiable Image Wrapper
+
+private struct IdentifiableImage: Identifiable {
+    let id = UUID()
+    let image: UIImage
+}
+
+// MARK: - Full Screen Infographic View
+
+private struct InfographicFullScreenView: View {
+    let image: UIImage
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            ScrollView([.horizontal, .vertical]) {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+            }
+            .navigationTitle("信息图")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("完成") { dismiss() }
+                }
+            }
         }
     }
 }

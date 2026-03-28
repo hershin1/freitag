@@ -27,10 +27,10 @@ struct AnalysisResult {
 /// Common interface for any AI analysis backend (OpenAI, DeepSeek, etc.).
 protocol AIServiceProtocol {
     /// Perform a full (non-streaming) analysis and return a structured result.
-    func analyzeArticle(title: String, content: String) async throws -> AnalysisResult
+    func analyzeArticle(title: String, content: String, mode: AnalysisMode) async throws -> AnalysisResult
 
     /// Perform a streaming analysis, yielding incremental text chunks.
-    func analyzeArticleStreaming(title: String, content: String) -> AsyncThrowingStream<String, Error>
+    func analyzeArticleStreaming(title: String, content: String, mode: AnalysisMode) -> AsyncThrowingStream<String, Error>
 }
 
 // MARK: - Markdown Analysis Parser

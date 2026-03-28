@@ -13,6 +13,11 @@ final class Analysis {
     var modelUsed: String
     var analyzedAt: Date
 
+    // v2: analysis mode and infographic support
+    var analysisMode: String
+    var infographicFileNames: [String]
+    var infographicStatus: String
+
     var article: Article?
 
     init(
@@ -24,7 +29,10 @@ final class Analysis {
         actionSuggestions: String,
         rawResponse: String,
         modelUsed: String,
-        analyzedAt: Date = Date()
+        analyzedAt: Date = Date(),
+        analysisMode: String = "deep",
+        infographicFileNames: [String] = [],
+        infographicStatus: String = "none"
     ) {
         self.id = id
         self.summary = summary
@@ -35,5 +43,8 @@ final class Analysis {
         self.rawResponse = rawResponse
         self.modelUsed = modelUsed
         self.analyzedAt = analyzedAt
+        self.analysisMode = analysisMode
+        self.infographicFileNames = infographicFileNames
+        self.infographicStatus = infographicStatus
     }
 }

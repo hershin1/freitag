@@ -51,7 +51,8 @@ class SettingsViewModel {
         do {
             let result = try await service.analyzeArticle(
                 title: "测试",
-                content: "这是一个连接测试。请简短回复'你好'两个字。"
+                content: "这是一个连接测试。请简短回复'你好'两个字。",
+                mode: .brief
             )
             if !result.rawResponse.isEmpty {
                 testResult = "✅ 连接成功！模型: \(config.modelName)"

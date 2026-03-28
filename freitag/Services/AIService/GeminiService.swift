@@ -43,10 +43,10 @@ final class GeminiService: AIServiceProtocol {
 
     // MARK: - Non-Streaming
 
-    func analyzeArticle(title: String, content: String) async throws -> AnalysisResult {
+    func analyzeArticle(title: String, content: String, mode: AnalysisMode) async throws -> AnalysisResult {
         let apiKey = try resolveAPIKey()
         let url = try buildURL(apiKey: apiKey, stream: false)
-        let body = try buildRequestBody(title: title, content: content)
+        let body = try buildRequestBody(title: title, content: content, mode: mode)
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -81,13 +81,13 @@ final class GeminiService: AIServiceProtocol {
 
     // MARK: - Streaming
 
-    func analyzeArticleStreaming(title: String, content: String) -> AsyncThrowingStream<String, Error> {
+    func analyzeArticleStreaming(title: String, content: String, mode: AnalysisMode) -> AsyncThrowingStream<String, Error> {
         AsyncThrowingStream { continuation in
             let task = Task {
                 do {
                     let apiKey = try resolveAPIKey()
                     let url = try buildURL(apiKey: apiKey, stream: true)
-                    let body = try buildRequestBody(title: title, content: content)
+                    let body = try buildRequestBody(title: title, content: content, mode: mode)
 
                     let headers: [String: String] = [
                         "Content-Type": "application/json"
@@ -172,9 +172,9 @@ final class GeminiService: AIServiceProtocol {
     ///   "generationConfig": {"temperature": 0.7, "maxOutputTokens": 4096}
     /// }
     /// ```
-    private func buildRequestBody(title: String, content: String) throws -> Data {
-        let systemPrompt = PromptBuilder.buildSystemPrompt()
-        let userPrompt = PromptBuilder.buildUserPrompt(title: title, content: content)
+    private func buildRequestBody(title: String, content: String, mode: AnalysisMode) throws -> Data {
+        let systemPrompt = PromptBuilder.buildSystemPrompt(mode: mode)
+        let userPrompt = PromptBuilder.buildUserPrompt(title: title, content: content, mode: mode)
 
         let body: [String: Any] = [
             "contents": [
