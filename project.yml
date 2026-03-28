@@ -69,6 +69,7 @@ targets:
     info:
       path: FreitagShareExtension/Info.plist
       properties:
+        CFBundleDisplayName: freitag
         NSExtension:
           NSExtensionPointIdentifier: com.apple.share-services
           NSExtensionPrincipalClass: "$(PRODUCT_MODULE_NAME).ShareViewController"
